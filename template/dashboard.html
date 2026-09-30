@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Health Monitor Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header Section -->
+        <header class="dashboard-header">
+            <h1>🚀 API Health Monitor</h1>
+            <p>Real-time monitoring of multiple business-critical APIs</p>
+            <div class="last-updated">Last Updated: <span id="lastUpdated">Never</span></div>
+        </header>
+
+        <!-- Summary Cards -->
+        <div class="summary-cards">
+            <div class="summary-card healthy">
+                <h3 id="healthyCount">0</h3>
+                <p>Healthy APIs</p>
+            </div>
+            <div class="summary-card total">
+                <h3 id="totalCount">0</h3>
+                <p>Total APIs</p>
+            </div>
+            <div class="summary-card unhealthy">
+                <h3 id="unhealthyCount">0</h3>
+                <p>Issues Detected</p>
+            </div>
+        </div>
+
+        <!-- API Status Grid -->
+        <div class="api-grid" id="apiGrid">
+            <!-- API cards will be populated by JavaScript -->
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <button id="refreshBtn" onclick="checkHealth()">🔄 Refresh Now</button>
+            <button id="autoRefreshBtn" onclick="toggleAutoRefresh()">▶️ Start Auto-Refresh</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+</html>
